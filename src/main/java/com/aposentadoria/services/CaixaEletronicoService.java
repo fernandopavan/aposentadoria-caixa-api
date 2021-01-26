@@ -34,10 +34,6 @@ public class CaixaEletronicoService {
         Usuario beneficiario = findByEmail(aporte.getEmail());
 
         try {
-            repository.save(Usuario.Builder.from(beneficiario)
-                    .situacao(SituacaoCalculo.PROCESSANDO)
-                    .build());
-
             aporte.setId(beneficiario.getId());
 
             System.out.println("Iniciando aporte para: " + beneficiario.getNome());
